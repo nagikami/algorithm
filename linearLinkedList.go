@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 )
 
 type LinearLinkedList struct {
@@ -9,8 +10,8 @@ type LinearLinkedList struct {
 	Next *LinearLinkedList
 }
 
-func (l *LinearLinkedList) Length() int {
-	p := l.Next
+func Length(l *LinearLinkedList) int {
+	p := l
 	i := 0
 	for ; p != nil; p = p.Next {
 		i++
@@ -21,6 +22,6 @@ func (l *LinearLinkedList) Length() int {
 func main() {
 	p2 := LinearLinkedList{10, nil}
 	p1 := LinearLinkedList{5, &p2}
-	l := LinearLinkedList{0, &p1}
-	fmt.Println(l.Length())
+	head := &p1
+	fmt.Println("The length of linkedList is "+ strconv.Itoa(Length(head)))
 }
